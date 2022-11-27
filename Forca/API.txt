@@ -1,0 +1,45 @@
+[[Headers]]
+
+[banners.h]
+    - abertura() -> show_game_banner()
+    - desenhar_forca() -> draw_hangman()
+    - resultado() ** [parcial]
+        -> show_defeat_banner()
+        -> show_winner_banner()
+
+[utils.h]
+    - escolher_palavra()
+        - Use "read_line"
+    - read_line() 
+    - adicionar_palavra() ** [parcial]
+        - update_database()
+
+[forca_core.h]
+    - chutar() -> hgm_make_attempt()
+    - verificar_chute() -> hgm_check_attempt()
+    - chutes_errados() -> hgm_handle_wrong_attempt()
+    - enforcou() -> hgm_was_hanged()
+    - acertou() -> hgm_check_word_complete()
+    - forca() -> hgm_handle_attempt()
+    - resultado() ** [parcial] 
+        -> hgm_show_result()
+        -> hgm_play_again()
+    - adicionar_palavra() ** [parcial] 
+        -> handle_add_word()
+
+[[Sources]]
+
+[main.c]
+    - main()
+
+[forca_core.c]
+    - chutar()
+    - verificar_chute()
+    - chutes_errados()
+    - enforcou()
+    - acertou()
+    - forca()
+    - resultado() ** [parcial]
+    - adicionar_palavra() ** [parcial]
+
+char* read_line(FILE* fdout, size_t line_index);
