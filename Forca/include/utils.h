@@ -31,7 +31,7 @@ static inline char* choose_secret_word()
     return NULL;
 }
 
-static bool add_word_to_database(FILE* fdout, const char* word)
+static bool add_word_to_database(FILE* fdout, const char word[static 1])
 {
     size_t word_cnt = 0u;
 
@@ -54,4 +54,12 @@ static bool add_word_to_database(FILE* fdout, const char* word)
 
     // forçamos o fluxo de saida
     fflush(fdout);
+
+    return true;
+}
+
+static inline void strupper(char input[static 1])
+{
+    for (; *input != '\0'; ++input)
+        *input = (char) toupper((unsigned char) *input);
 }

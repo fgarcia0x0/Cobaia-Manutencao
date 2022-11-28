@@ -15,7 +15,7 @@
         - update_database()
 
 [forca_core.h]
-    - chutar() -> hgm_make_attempt()
+    - chutar() -> hgm_store_attempt()
     - verificar_chute() -> hgm_check_attempt()
     - chutes_errados() -> hgm_handle_wrong_attempt()
     - enforcou() -> hgm_was_hanged()
