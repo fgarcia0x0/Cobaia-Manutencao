@@ -3,8 +3,8 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "hangman_core.h"
-#include "utils.h"
+#include <hangman_core.h>
+#include <utils.h>
 
 HANGMAN_API void hgm_make_attempt(size_t* attempt_index_ptr,
                                   char* attempts)
@@ -41,7 +41,7 @@ HANGMAN_API void hgm_handle_add_word()
                 strupper(new_word);
 
                 // abre o "banco de dados"
-                FILE* fdout = fopen("forca.txt", "r+");
+                FILE* fdout = fopen(HGM_DATABASE_NAME, "r+");
                 
                 if (!fdout)
                 {

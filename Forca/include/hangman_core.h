@@ -8,6 +8,7 @@
 
 #define HGM_MAX_ATTEMPT_ERROR (7u) 
 #define HGM_MAX_WORD_SIZE (1024u)
+#define HGM_DATABASE_NAME ("hangman_database.hgm")
 
 /**
  * @brief Stores the user's attempt in the attempt list
@@ -16,7 +17,7 @@
  * @param attempts The attempt list
  */
 HANGMAN_API void hgm_store_attempt(size_t* attempt_index_ptr,
-                                   char attempts[static]);
+                                   char attempts[static 1]);
 
 /**
  * @brief 

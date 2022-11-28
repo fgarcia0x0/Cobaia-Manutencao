@@ -6,6 +6,8 @@
 #include <string.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <inttypes.h>
+#include <assert.h>
 
 #define HGM_MAX_LINE_SIZE (1024u)
 
@@ -33,9 +35,10 @@ static inline char* choose_secret_word()
 
 static bool add_word_to_database(FILE* fdout, const char word[static 1])
 {
-    size_t word_cnt = 0u;
+    static_assert(sizeof(size_t) == sizeof(uintptr_t));
 
-    if (fscanf(fdout, "%zu", &word_cnt) != 1u)
+    size_t word_cnt = 0u;
+    if (fscanf(fdout, "%" SCNuPTR, &word_cnt) != 1u)
         return false;
 
     word_cnt++;
@@ -44,7 +47,7 @@ static bool add_word_to_database(FILE* fdout, const char word[static 1])
 	fseek(fdout, 0L, SEEK_SET);
 
 	// Escrever no arquivo a quantidade de palavras
-	fprintf(fdout, "%zu", word_cnt);
+	fprintf(fdout, "%" PRIuPTR, word_cnt);
 
 	// Posicionar o ponteiro para o fim do arquivo
 	fseek(fdout, 0L, SEEK_END);
