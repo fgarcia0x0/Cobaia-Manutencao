@@ -84,3 +84,31 @@ void hgm_handle_attempt(const char* secret_word,
     
 	puts("");
 }
+HANGMAN_API void hgm_show_result(bool is_winner)
+{
+    if(acertou()){
+        show_winner_banner();
+    }
+    else{
+        show_defeat_banner();
+    }
+    hgm_play_again();
+}
+
+HANGMAN_API int hgm_scored(const char* secret_word) {
+	for(int i = 0; i<strlen(secret_word); i++){
+		int nao_completou_palavra = !hgm_handle_attempt(secret_word[i]);
+		if(nao_completou_palavra)
+			return false;
+	}
+	return true;
+}
+
+HANGMAN_API bool hgm_play_again(){
+    char play_again;
+    printf("Deseja jogar novamente?(S/N)");
+    scanf("%c%*c", &play_again);
+    play_again = (char) toupper((unsigned char) play_again);
+    if (play_again == 'S') return true;
+    else return false;
+}

@@ -93,3 +93,5 @@ HANGMAN_API bool hgm_play_again();
  * @brief Handles adding a new word to the database
  */
 HANGMAN_API void hgm_handle_add_word();
+
+HANGMAN_API int hgm_scored(const char* secret_word);
