@@ -67,8 +67,12 @@ HANGMAN_API bool hgm_check_word_complete(const char secret_word[static 1]);
  * @brief 
  * 
  * @param secret_word
+ * @param attempt_index
+ * @param error_count
  */
-HANGMAN_API void hgm_handle_attempt(const char secret_word[static 1]);
+HANGMAN_API void hgm_handle_attempt(const char* secret_word, 
+                                    size_t attempt_index,
+                                    size_t error_count);
 
 /**
  * @brief 

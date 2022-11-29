@@ -14,7 +14,7 @@ static inline void show_game_banner()
     puts(s_banner);
 }
 
-static inline void draw_hangman(int error_count)
+static inline void draw_hangman(size_t error_count)
 {
     printf( "  _______      \n"
             " |/      |     \n"

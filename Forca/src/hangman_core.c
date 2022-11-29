@@ -5,6 +5,7 @@
 
 #include <hangman_core.h>
 #include <utils.h>
+#include <banners.h>
 
 HANGMAN_API void hgm_make_attempt(size_t* attempt_index_ptr,
                                   char* attempts)
@@ -59,4 +60,27 @@ HANGMAN_API void hgm_handle_add_word()
             }
         }
     }
+}
+
+void hgm_handle_attempt(const char* secret_word, 
+                        size_t attempt_index, 
+                        size_t error_count)
+{
+	draw_hangman(error_count);
+    bool letter_found;
+
+	for(size_t index = 0u; index < strlen(secret_word); ++index)
+    {
+		
+		letter_found = hgm_check_attempt(secret_word[index], 
+                                         attempt_index, 
+                                         secret_word);
+
+		if (letter_found)
+			printf("%c ", secret_word[index]);
+		else
+			printf("_ ");
+	}
+    
+	puts("");
 }

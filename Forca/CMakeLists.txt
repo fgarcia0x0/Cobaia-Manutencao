@@ -24,7 +24,7 @@ target_include_directories(hangman_core PUBLIC ${HGM_BASE_DIR}/include)
 
 set_target_properties(hangman_game
 PROPERTIES
-	C_STANDARD 17
+	C_STANDARD 11
 	C_STANDARD_REQUIRED ON
 	C_EXTENSIONS OFF
 )
